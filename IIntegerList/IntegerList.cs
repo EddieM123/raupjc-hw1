@@ -12,11 +12,13 @@ namespace IIntegerList
         private int?[] temp;
         private int i = 0;
 
+        // default constructor
         public IntegerList()
         {
             _internalStorage = new int?[4];
         }
 
+        // Specified size constructor
         public IntegerList(int initialSize)
         {
             if (initialSize <= 0)
@@ -33,7 +35,6 @@ namespace IIntegerList
             {
                 if (_internalStorage[i] is null)
                 {
-                    
                     t = true;
                     _internalStorage[i] = x;
                     break;
@@ -56,7 +57,18 @@ namespace IIntegerList
 
                 _internalStorage[temp.Length] = x;
             }
+        }
 
+        public bool Remove(int x)
+        {
+            for (i = 0; i < _internalStorage.Length; i++)
+            {
+                if (_internalStorage[i] == x)
+                {
+                    return RemoveAt(i);
+                }
+            }
+            return false;
         }
 
         public bool RemoveAt(int index)
@@ -77,24 +89,11 @@ namespace IIntegerList
 
                 return true;
             }
-
-        }
-
-        public bool Remove(int x)
-        {
-            for(i = 0; i < _internalStorage.Length; i++)
-            {
-                if(_internalStorage[i] == x)
-                {
-                    return RemoveAt(i);
-                }
-            }
-            return false;
         }
 
        public int GetElement(int index)
         {
-            if(index > _internalStorage.Length) { throw new IndexOutOfRangeException(); }
+            if(index > _internalStorage.Length || index < 0) { throw new IndexOutOfRangeException(); }
             else
             {
                 if (_internalStorage[index] != null) return (int)_internalStorage[index];
@@ -102,26 +101,32 @@ namespace IIntegerList
             }
         }
 
+        // returns index of said item, if not found returns -1
+        public int IndexOf(int item)
+        {
+            for (i = 0; i < _internalStorage.Length; i++)
+            {
+                if (_internalStorage[i] == item) return i;
+            }
+            return -1;
+        }
+
         public int Count
         {
             get {
                 int x = 0;
-                    for (i = 0; i < _internalStorage.Length; i++)
-                    {
-                        if (_internalStorage[i] != null) x++;
-                    }
+                for (i = 0; i < _internalStorage.Length; i++)
+                {
+                     if (_internalStorage[i] != null) x++;
+                }
                 return x; 
-                 }
+                }
         }
 
         public void Clear()
         {
-            for(i = 0; i < _internalStorage.Length; i++)
-            {
-                _internalStorage[i] = null;
-            }
+            for(i = 0; i < _internalStorage.Length; i++) { _internalStorage[i] = null; }
         }
-
      
         public bool Contains(int item)
         {
@@ -130,16 +135,6 @@ namespace IIntegerList
                 if (_internalStorage[i] == item) return true;
             }
             return false;
-        }
-
-       
-        public int IndexOf(int item)
-        {
-            for(i = 0; i < _internalStorage.Length; i++)
-            {
-                if (_internalStorage[i] == item) return i;
-            }
-            return -1;
         }
     }
 }
