@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Main", "IIntegerList\Main.csproj", "{7D4FB4BA-9D16-4A62-9212-E288208B4AB0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.zad", "IIntegerList\1.zad.csproj", "{7D4FB4BA-9D16-4A62-9212-E288208B4AB0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{6235C3A5-CA11-4EDE-BE7B-07BC23DF99EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.zad", "2.zad\2.zad.csproj", "{B6DB5B39-9339-47A8-83D1-47EE94CD71F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.zad", "3.zad\3.zad.csproj", "{56A99156-B335-46A1-8C12-C34AD9705DD8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{6235C3A5-CA11-4EDE-BE7B-07BC23DF99EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6235C3A5-CA11-4EDE-BE7B-07BC23DF99EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6235C3A5-CA11-4EDE-BE7B-07BC23DF99EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6DB5B39-9339-47A8-83D1-47EE94CD71F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6DB5B39-9339-47A8-83D1-47EE94CD71F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6DB5B39-9339-47A8-83D1-47EE94CD71F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6DB5B39-9339-47A8-83D1-47EE94CD71F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56A99156-B335-46A1-8C12-C34AD9705DD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56A99156-B335-46A1-8C12-C34AD9705DD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56A99156-B335-46A1-8C12-C34AD9705DD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56A99156-B335-46A1-8C12-C34AD9705DD8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

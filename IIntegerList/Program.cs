@@ -11,7 +11,6 @@ namespace Test
     {
         static void Main(string[] args)
         {
-
             IntegerList listOfIntegers = new IntegerList();
             listOfIntegers.Add(1); // [1]
             listOfIntegers.Add(2); // [1 ,2]
@@ -25,16 +24,6 @@ namespace Test
             Console.WriteLine(listOfIntegers.RemoveAt (5) ) ; // false
             listOfIntegers.Clear() ; // []
             Console.WriteLine(listOfIntegers.Count ) ; // 0
-
-
-            int[] asdf;
-            asdf = new int[4];
-            
-            for(int i = 0; i < asdf.Length; i++)
-            {
-                Console.WriteLine(asdf[i]);
-            }
-
             Console.ReadKey();
         }
     }
