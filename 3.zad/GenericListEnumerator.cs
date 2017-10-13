@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace _3.zad
 {
-    class GenericListEnumerator<T> : IEnumerator<T>
-    {
+    //class GenericListEnumerator<T> : IEnumerator<T>
+   // {
 
-        public T Current
-        {
-            get
-            {
-                return T.GetType;
-            }
-        }
-    }
+    //    public T Current
+       // {
+     //       get
+     //       {
+       //         return T.GetType;
+      //      }
+    //    }
+   // }
 }

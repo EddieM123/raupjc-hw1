@@ -41,5 +41,6 @@ namespace _2.zad
         /// Determines whether the collection contains a specific value .
         /// </ summary >
         bool Contains(X item);
-    }
+    }
+
 }

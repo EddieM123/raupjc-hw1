@@ -8,14 +8,17 @@ namespace IIntegerList
 {
     public class IntegerList : IIntegerList 
     {
-        private int?[] _internalStorage;
-        private int?[] temp;
+        private int[] _internalStorage;
+        private int[] temp;
+        private bool[] status;
+        private bool[] tempstat;
         private int i = 0;
 
         // default constructor
         public IntegerList()
         {
-            _internalStorage = new int?[4];
+            _internalStorage = new int[4];
+            status = new bool[4];
         }
 
         // Specified size constructor
@@ -25,7 +28,11 @@ namespace IIntegerList
             {
                 Console.WriteLine("Number can't be less or equal than 0.");
             }
-            else _internalStorage = new int?[initialSize];
+            else
+            {
+                _internalStorage = new int[initialSize];
+                status = new bool[initialSize];
+            }
         }
 
         public void Add(int x)
@@ -33,29 +40,36 @@ namespace IIntegerList
             bool t = false;
             for (int i = 0; i < _internalStorage.Length; i++)
             {
-                if (_internalStorage[i] is null)
+                if (status[i] == false)
                 {
                     t = true;
                     _internalStorage[i] = x;
+                    status[i] = true;
                     break;
                 }
             }
             if (!t)
             {
-                temp = new int?[_internalStorage.Length];
+                temp = new int[_internalStorage.Length];
+                tempstat = new bool[_internalStorage.Length];
+
                 for (i = 0; i < _internalStorage.Length; i++)
                 {
                     temp[i] = _internalStorage[i];
+                    tempstat[i] = status[i];
                 }
 
-                _internalStorage = new int?[_internalStorage.Length * 2];
+                _internalStorage = new int[_internalStorage.Length * 2];
+                status = new bool[_internalStorage.Length * 2];
 
                 for (i = 0; i < temp.Length; i++)
                 {
                     _internalStorage[i] = temp[i];
+                    status[i] = tempstat[i];
                 }
 
                 _internalStorage[temp.Length] = x;
+                status[temp.Length] = true;
             }
         }
 
@@ -79,13 +93,16 @@ namespace IIntegerList
             }
             else
             {
-                if (_internalStorage[index] is null) return false;
-                _internalStorage[index] = null;
+                if (status[index] is false) return false;
+                _internalStorage[index] = 0;
+                status[index] = false;
                 for(i = index; i < _internalStorage.Length-1; i++)
                 {
                     _internalStorage[i] = _internalStorage[i + 1];
+                    status[i] = status[i + 1];
                 }
-                _internalStorage[_internalStorage.Length - 1] = null;
+                _internalStorage[_internalStorage.Length - 1] = 0;
+                status[_internalStorage.Length - 1] = false;
 
                 return true;
             }
@@ -96,7 +113,7 @@ namespace IIntegerList
             if(index > _internalStorage.Length || index < 0) { throw new IndexOutOfRangeException(); }
             else
             {
-                if (_internalStorage[index] != null) return (int)_internalStorage[index];
+                if (status[index]) return (int)_internalStorage[index];
                 else return -1;
             }
         }
@@ -117,7 +134,7 @@ namespace IIntegerList
                 int x = 0;
                 for (i = 0; i < _internalStorage.Length; i++)
                 {
-                     if (_internalStorage[i] != null) x++;
+                     if (status[i]) x++;
                 }
                 return x; 
                 }
@@ -125,7 +142,7 @@ namespace IIntegerList
 
         public void Clear()
         {
-            for(i = 0; i < _internalStorage.Length; i++) { _internalStorage[i] = null; }
+            for(i = 0; i < _internalStorage.Length; i++) { _internalStorage[i] = 0; status[i] = false; }
         }
      
         public bool Contains(int item)

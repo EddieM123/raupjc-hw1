@@ -27,14 +27,6 @@ namespace Test
             Console.WriteLine(listOfIntegers.Count ) ; // 0
 
 
-            int[] asdf;
-            asdf = new int[4];
-            
-            for(int i = 0; i < asdf.Length; i++)
-            {
-                Console.WriteLine(asdf[i]);
-            }
-
             Console.ReadKey();
         }
     }
