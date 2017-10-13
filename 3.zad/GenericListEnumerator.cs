@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _2.zad;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace _3.zad
 {
-    //class GenericListEnumerator<T> : IEnumerator<T>
-   // {
+    class GenericListEnumerator<T> : IEnumerator<T>
+    {
+        private GenericList<T> list;
 
-    //    public T Current
-       // {
-     //       get
-     //       {
-       //         return T.GetType;
-      //      }
-    //    }
-   // }
+        public GenericListEnumerator(GenericList<T> _list)
+        {
+           
+
+
+        }
+    }
 }

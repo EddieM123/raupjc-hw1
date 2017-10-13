@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace _2.zad
 {
-    public class GenericList<X> : IGenericList<X> where X : struct
+    public class GenericList<X> : IGenericList<X> 
     {
 
         private X[] _internalStorage;
         private X[] temp;
         private bool[] status;
         private bool[] tempstat;
-        private int i = 0;s
+        private int i = 0;
 
 
 
