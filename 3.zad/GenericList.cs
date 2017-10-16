@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -49,7 +47,7 @@ namespace _2.zad
         {
             if (initialSize <= 0)
             {
-                Console.WriteLine("Number can't be less or equal than 0.");
+                throw new ArgumentException("Argument has to be greater than 0.");
             }
             else
             {
