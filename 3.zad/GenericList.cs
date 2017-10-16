@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _2.zad
+namespace _3.zad
 {
     public class GenericList<X> : IGenericList<X> 
     {
@@ -19,10 +20,10 @@ namespace _2.zad
         // enumerator implementation
         public IEnumerator<X> GetEnumerator()
         {
-            return new GenericListEnumerator<X>(this);
+            return new _3.zad.GenericListEnumerator<X>(this._internalStorage);
         }
 
-        IEnumerator IEnumerable.GetEnumerator()
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
         }

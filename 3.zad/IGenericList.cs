@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _2.zad
+namespace _3.zad
 {
     public interface IGenericList<X> : IEnumerable<X>
     {
