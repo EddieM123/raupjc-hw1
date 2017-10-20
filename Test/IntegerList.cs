@@ -3,21 +3,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IIntegerList
+namespace _1.zad
 {
     public class IntegerList : IIntegerList 
     {
         private int[] _internalStorage;
         private int[] temp;
-        private bool[] status;
-        private bool[] tempstat;
         private int i = 0;
+
+        int indeks = 0;
 
         // default constructor
         public IntegerList()
         {
             _internalStorage = new int[4];
-            status = new bool[4];
         }
 
         // Specified size constructor
@@ -30,51 +29,42 @@ namespace IIntegerList
             else
             {
                 _internalStorage = new int[initialSize];
-                status = new bool[initialSize];
             }
         }
 
         public void Add(int x)
         {
-            bool t = false;
-            for (int i = 0; i < _internalStorage.Length; i++)
-            {
-                if (status[i] == false)
-                {
-                    t = true;
-                    _internalStorage[i] = x;
-                    status[i] = true;
-                    break;
-                }
+            if(indeks < _internalStorage.Length) {
+                _internalStorage[indeks] = x;
+                indeks++;
             }
-            if (!t)
+            
+
+            else
             {
                 temp = new int[_internalStorage.Length];
-                tempstat = new bool[_internalStorage.Length];
 
                 for (i = 0; i < _internalStorage.Length; i++)
                 {
                     temp[i] = _internalStorage[i];
-                    tempstat[i] = status[i];
                 }
 
                 _internalStorage = new int[_internalStorage.Length * 2];
-                status = new bool[_internalStorage.Length * 2];
 
                 for (i = 0; i < temp.Length; i++)
                 {
                     _internalStorage[i] = temp[i];
-                    status[i] = tempstat[i];
                 }
 
-                _internalStorage[temp.Length] = x;
-                status[temp.Length] = true;
+                _internalStorage[indeks] = x;
+
+                indeks++;
             }
         }
 
         public bool Remove(int x)
         {
-            for (i = 0; i < _internalStorage.Length; i++)
+            for (i = 0; i < indeks; i++)
             {
                 if (_internalStorage[i] == x)
                 {
@@ -86,23 +76,19 @@ namespace IIntegerList
 
         public bool RemoveAt(int index)
         {
-            if(index > _internalStorage.Length)
+            if (index > _internalStorage.Length)
             {
                 throw new IndexOutOfRangeException();
             }
+            if (index > indeks) return false;
             else
             {
-                if (status[index] is false) return false;
-                _internalStorage[index] = 0;
-                status[index] = false;
-                for(i = index; i < _internalStorage.Length-1; i++)
+                
+                for (i = index; i < indeks; i++)
                 {
                     _internalStorage[i] = _internalStorage[i + 1];
-                    status[i] = status[i + 1];
                 }
-                _internalStorage[_internalStorage.Length - 1] = 0;
-                status[_internalStorage.Length - 1] = false;
-
+                indeks = indeks - 1;
                 return true;
             }
         }
@@ -112,7 +98,7 @@ namespace IIntegerList
             if(index > _internalStorage.Length || index < 0) { throw new IndexOutOfRangeException(); }
             else
             {
-                if (status[index]) return (int)_internalStorage[index];
+                if (index < indeks) return (int)_internalStorage[index];
                 else return -1;
             }
         }
@@ -120,7 +106,7 @@ namespace IIntegerList
         // returns index of said item, if not found returns -1
         public int IndexOf(int item)
         {
-            for (i = 0; i < _internalStorage.Length; i++)
+            for (i = 0; i < indeks; i++)
             {
                 if (_internalStorage[i] == item) return i;
             }
@@ -130,23 +116,18 @@ namespace IIntegerList
         public int Count
         {
             get {
-                int x = 0;
-                for (i = 0; i < _internalStorage.Length; i++)
-                {
-                     if (status[i]) x++;
-                }
-                return x; 
+                return indeks;
                 }
         }
 
         public void Clear()
         {
-            for(i = 0; i < _internalStorage.Length; i++) { _internalStorage[i] = 0; status[i] = false; }
+            indeks = 0;
         }
      
         public bool Contains(int item)
         {
-            for(i = 0; i < _internalStorage.Length; i++)
+            for(i = 0; i < indeks; i++)
             {
                 if (_internalStorage[i] == item) return true;
             }

@@ -1,8 +1,8 @@
 
 #----------------------------- Global Properties ----------------------------#
 
-/outputDir:bin/Windows
-/intermediateDir:obj/Windows
+/outputDir:bin
+/intermediateDir:obj
 /platform:Windows
 /config:
 /profile:Reach
@@ -21,6 +21,7 @@
 /processorParam:GenerateMipmaps=False
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:background.png
 
@@ -32,8 +33,21 @@
 /processorParam:GenerateMipmaps=False
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:ball.png
+
+#begin hit.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:hit.wav
+
+#begin music.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:music.mp3
 
 #begin paddle.jpg
 /importer:TextureImporter
@@ -43,18 +57,7 @@
 /processorParam:GenerateMipmaps=False
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:paddle.jpg
-
-#begin music.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:music.mp3
-
-#begin hit.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:hit.wav
 

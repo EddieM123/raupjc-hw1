@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Principal;
 
 namespace Pong_Projekt
 {
@@ -14,8 +15,14 @@ namespace Pong_Projekt
         [STAThread]
         static void Main()
         {
+
+
+            
+
+               
             using (var game = new Game1())
                 game.Run();
+            
         }
     }
 #endif

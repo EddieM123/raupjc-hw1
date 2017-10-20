@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using IIntegerList;
+using _1.zad;
 
 namespace Test
 {
@@ -24,7 +24,6 @@ namespace Test
             Console.WriteLine(listOfIntegers.RemoveAt (5) ) ; // false
             listOfIntegers.Clear() ; // []
             Console.WriteLine(listOfIntegers.Count ) ; // 0
-
 
             Console.ReadKey();
         }
