@@ -8,25 +8,25 @@ namespace ClassLibrary2
     class GenericListEnumerator<T> : IEnumerator<T>
     {
         private T[] list;
-        private int Cursor;
+        private int point;
 
         public GenericListEnumerator(T[] _list)
         {
             this.list = _list;
-            Cursor = -1;
+            point = -1;
 
         }
 
         public void Reset()
         {
-            Cursor = -1;
+            point = -1;
         }
 
 
         public bool MoveNext()
         {
-            if (Cursor < list.Length) Cursor++;
-            return (!(Cursor == list.Length));
+            if (point < list.Length) point++;
+            return (!(point == list.Length));
         }
 
         void IDisposable.Dispose() { }
@@ -35,8 +35,8 @@ namespace ClassLibrary2
         {
             get
             {
-                if ((Cursor < 0) || (Cursor == list.Length)) throw new InvalidOperationException();
-                return list[Cursor];
+                if ((point < 0) || (point == list.Length)) throw new InvalidOperationException();
+                return list[point];
             }
         }
 
@@ -44,8 +44,8 @@ namespace ClassLibrary2
         {
             get
             {
-                if ((Cursor < 0) || (Cursor == list.Length)) throw new InvalidOperationException();
-                return list[Cursor];
+                if ((point < 0) || (point == list.Length)) throw new InvalidOperationException();
+                return list[point];
             }
         }
     }
