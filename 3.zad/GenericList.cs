@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using _3.zad;
 using System.Collections.Generic;
 
