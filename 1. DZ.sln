@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary2", "ClassLibra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{909A9FB0-826B-461F-B0ED-DBF618AD9FCF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.zad", "..\raupjc-hw1-InProgress-ee54b251a3b282a24d3455765d90467b207b8bf8\IIntegerList\1.zad.csproj", "{7D4FB4BA-9D16-4A62-9212-E288208B4AB0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.zad", "1.zad\1.zad.csproj", "{7D4FB4BA-9D16-4A62-9212-E288208B4AB0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

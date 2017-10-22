@@ -58,8 +58,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\raupjc-hw1-InProgress-ee54b251a3b282a24d3455765d90467b207b8bf8\IIntegerList\1.zad.csproj">
-      <Project>{7D4FB4BA-9D16-4A62-9212-E288208B4AB0}</Project>
+    <ProjectReference Include="..\1.zad\1.zad.csproj">
+      <Project>{7d4fb4ba-9d16-4a62-9212-e288208b4ab0}</Project>
       <Name>1.zad</Name>
     </ProjectReference>
     <ProjectReference Include="..\2.zad\2.zad.csproj">

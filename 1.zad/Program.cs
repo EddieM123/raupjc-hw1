@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using IIntegerList;
+using _1.zad;
 
 namespace Test
 {

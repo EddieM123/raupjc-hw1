@@ -3,7 +3,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IIntegerList
+namespace _1.zad
 {
     public interface IIntegerList
      {
