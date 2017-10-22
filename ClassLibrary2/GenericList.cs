@@ -1,46 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClassLibrary2
 {
-    public class GenericList<X> : IGenericList<X> 
+    public class GenericList<X> : IGenericList<X>
     {
-
         private X[] _internalStorage;
         private X[] temp;
-        private bool[] status;
-        private bool[] tempstat;
         private int i = 0;
 
-
+        int indeks = 0;
 
         // enumerator implementation
         public IEnumerator<X> GetEnumerator()
         {
-            return new ClassLibrary2.GenericListEnumerator<X>(this._internalStorage);
+            return new GenericListEnumerator<X>(this._internalStorage);
         }
 
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
         }
-        
 
 
         // default constructor
         public GenericList()
         {
             _internalStorage = new X[4];
-            status = new bool[4];
-
-            for (int i = 0; i < _internalStorage.Length; i++)
-            {
-                _internalStorage[i] = default(X);
-            }
-
         }
 
         // Specified size constructor
@@ -53,55 +39,46 @@ namespace ClassLibrary2
             else
             {
                 _internalStorage = new X[initialSize];
-                status = new bool[initialSize];
             }
         }
 
         public void Add(X x)
         {
-            bool t = false;
-            for (int i = 0; i < _internalStorage.Length; i++)
+            if (indeks < _internalStorage.Length)
             {
-                if (!status[i])
-                {
-                    t = true;
-                    _internalStorage[i] = x;
-                    status[i] = true;
-                    break;
-                }
+                _internalStorage[indeks] = x;
+                indeks++;
             }
-            if (!t)
+
+
+            else
             {
                 temp = new X[_internalStorage.Length];
-                tempstat = new bool[_internalStorage.Length];
 
                 for (i = 0; i < _internalStorage.Length; i++)
                 {
                     temp[i] = _internalStorage[i];
-                    tempstat[i] = status[i];
                 }
 
                 _internalStorage = new X[_internalStorage.Length * 2];
-                status = new bool[_internalStorage.Length * 2];
 
                 for (i = 0; i < temp.Length; i++)
                 {
                     _internalStorage[i] = temp[i];
-                    status[i] = tempstat[i];
                 }
 
-                _internalStorage[temp.Length] = x;
-                status[temp.Length] = true;
+                _internalStorage[indeks] = x;
+                indeks++;
             }
         }
 
         public bool Remove(X x)
         {
-            for (i = 0; i < _internalStorage.Length; i++)
+            for (i = 0; i < indeks; i++)
             {
-                if (status[i])
+                if (_internalStorage[i].Equals(x))
                 {
-                    if (_internalStorage[i].Equals(x)) return RemoveAt(i);
+                    return RemoveAt(i);
                 }
             }
             return false;
@@ -113,20 +90,15 @@ namespace ClassLibrary2
             {
                 throw new IndexOutOfRangeException();
             }
+            if (index > indeks) return false;
             else
             {
-                if (!status[index]) return false;
-                _internalStorage[index] = default(X);
-                status[index] = false;
 
-                for (i = index; i < _internalStorage.Length - 1; i++)
+                for (i = index; i < indeks; i++)
                 {
                     _internalStorage[i] = _internalStorage[i + 1];
-                    status[i] = status[i + 1];
                 }
-                _internalStorage[_internalStorage.Length - 1] = default(X);
-                status[_internalStorage.Length - 1] = false;
-
+                indeks = indeks - 1;
                 return true;
             }
         }
@@ -136,7 +108,7 @@ namespace ClassLibrary2
             if (index > _internalStorage.Length || index < 0) { throw new IndexOutOfRangeException(); }
             else
             {
-                if (status[index]) return (X)_internalStorage[index];
+                if (index < indeks) return (X)_internalStorage[index];
                 else return (X)Convert.ChangeType(-1, typeof(X)); ;
             }
         }
@@ -144,7 +116,7 @@ namespace ClassLibrary2
         // returns index of said item, if not found returns -1
         public int IndexOf(X item)
         {
-            for (i = 0; i < _internalStorage.Length; i++)
+            for (i = 0; i < indeks; i++)
             {
                 if (_internalStorage[i].Equals(item)) return i;
             }
@@ -155,29 +127,22 @@ namespace ClassLibrary2
         {
             get
             {
-                int x = 0;
-                for (i = 0; i < _internalStorage.Length; i++)
-                {
-                    if (status[i]) x++;
-                }
-                return x;
+                return indeks;
             }
         }
 
         public void Clear()
         {
-            for (i = 0; i < _internalStorage.Length; i++) { _internalStorage[i] = default(X); status[i] = false; }
+            indeks = 0;
         }
 
         public bool Contains(X item)
         {
-            for (i = 0; i < _internalStorage.Length; i++)
+            for (i = 0; i < indeks; i++)
             {
                 if (_internalStorage[i].Equals(item)) return true;
             }
             return false;
         }
-
-
     }
 }
