@@ -38,8 +38,6 @@ namespace _2.zad
                 _internalStorage[indeks] = x;
                 indeks++;
             }
-
-
             else
             {
                 temp = new X[_internalStorage.Length];
@@ -82,7 +80,6 @@ namespace _2.zad
             if (index > indeks) return false;
             else
             {
-                
                 for (i = index; i < indeks; i++)
                 {
                     _internalStorage[i] = _internalStorage[i + 1];
@@ -98,7 +95,7 @@ namespace _2.zad
             else
             {
                 if (index < indeks) return (X)_internalStorage[index];
-                else return (X)Convert.ChangeType(-1, typeof(X)); ;
+                else return (X)Convert.ChangeType(-1, typeof(X));
             }
         }
 

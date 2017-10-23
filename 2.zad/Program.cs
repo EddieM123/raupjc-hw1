@@ -7,8 +7,6 @@ namespace _2.zad
     {
         static void Main(string[] args)
         {
-
-           
                 GenericList<String> listOfIntegers = new GenericList<String>();
                 listOfIntegers.Add("1"); // [1]
                 listOfIntegers.Add("2"); // [1 ,2]

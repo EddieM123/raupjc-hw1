@@ -49,8 +49,6 @@ namespace ClassLibrary2
                 _internalStorage[indeks] = x;
                 indeks++;
             }
-
-
             else
             {
                 temp = new X[_internalStorage.Length];
@@ -93,7 +91,6 @@ namespace ClassLibrary2
             if (index > indeks) return false;
             else
             {
-
                 for (i = index; i < indeks; i++)
                 {
                     _internalStorage[i] = _internalStorage[i + 1];

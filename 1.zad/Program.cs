@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Text;
-using _1.zad;
 
-namespace Test
+namespace _1.zad
 {
     class Program
     {

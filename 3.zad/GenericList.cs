@@ -16,7 +16,7 @@ namespace _3.zad
         // enumerator implementation
         public IEnumerator<X> GetEnumerator()
         {
-            return new _3.zad.GenericListEnumerator<X>(this);
+            return new GenericListEnumerator<X>(this);
         }
 
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
@@ -95,7 +95,6 @@ namespace _3.zad
             if (index > indeks) return false;
             else
             {
-
                 for (i = index; i < indeks; i++)
                 {
                     _internalStorage[i] = _internalStorage[i + 1];

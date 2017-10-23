@@ -37,8 +37,6 @@ namespace _1.zad
                 _internalStorage[indeks] = x;
                 indeks++;
             }
-
-
             else
             {
                 temp = new int[_internalStorage.Length];
@@ -81,12 +79,11 @@ namespace _1.zad
             if (index > indeks) return false;
             else
             {
-
                 for (i = index; i < indeks; i++)
                 {
                     _internalStorage[i] = _internalStorage[i + 1];
                 }
-                indeks = indeks - 1;
+                indeks--;
                 return true;
             }
         }
