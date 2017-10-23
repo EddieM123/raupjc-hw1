@@ -16,7 +16,7 @@ namespace _3.zad
         // enumerator implementation
         public IEnumerator<X> GetEnumerator()
         {
-            return new _3.zad.GenericListEnumerator<X>(this._internalStorage);
+            return new _3.zad.GenericListEnumerator<X>(this);
         }
 
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()

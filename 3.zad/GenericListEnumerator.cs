@@ -7,36 +7,37 @@ namespace _3.zad
 {
     class GenericListEnumerator<T> : IEnumerator<T>
     {
-        private T[] list;
-        private int Cursor;
+        private GenericList<T> list;
+        private int point;
+        
 
-        public GenericListEnumerator(T[] _list)
+        public GenericListEnumerator(GenericList<T> _list)
         {
             this.list = _list;
-            Cursor = -1;
+            point = -1;
 
         }
 
         public void Reset()
         {
-            Cursor = -1;
+            point = -1;
         }
 
 
         public bool MoveNext()
         {
-            if (Cursor < list.Length) Cursor++;
-            return (!(Cursor == list.Length));
-        }
+            if (point < list.Count) point++;
 
-        void IDisposable.Dispose() { }
+            if (point == list.Count) return false;
+            else return true;
+        }
 
         public T Current
         {
             get
             {
-                if ((Cursor < 0) || (Cursor == list.Length)) throw new InvalidOperationException();
-                return list[Cursor];
+                if ((point == list.Count) || (point < 0)) throw new InvalidOperationException();
+                return list.GetElement(point);
             }
         }
 
@@ -44,10 +45,12 @@ namespace _3.zad
         {
             get
             {
-                if ((Cursor < 0) || (Cursor == list.Length)) throw new InvalidOperationException();
-                return list[Cursor];
+                if ((point == list.Count) || (point < 0)) throw new InvalidOperationException();
+                return list.GetElement(point);
             }
         }
+
+        void IDisposable.Dispose() { }
     }
 }
 

@@ -1,5 +1,4 @@
-﻿using ClassLibrary2;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,10 +6,12 @@ namespace ClassLibrary2
 {
     class GenericListEnumerator<T> : IEnumerator<T>
     {
-        private T[] list;
+        private GenericList<T> list;
         private int point;
+        
 
-        public GenericListEnumerator(T[] _list)
+
+        public GenericListEnumerator(GenericList<T> _list)
         {
             this.list = _list;
             point = -1;
@@ -25,18 +26,18 @@ namespace ClassLibrary2
 
         public bool MoveNext()
         {
-            if (point < list.Length) point++;
-            return (!(point == list.Length));
-        }
+            if (point < list.Count) point++;
 
-        void IDisposable.Dispose() { }
+            if (point == list.Count) return false;
+            else return true;
+        }
 
         public T Current
         {
             get
             {
-                if ((point < 0) || (point == list.Length)) throw new InvalidOperationException();
-                return list[point];
+                if ((point == list.Count) || (point < 0)) throw new InvalidOperationException();
+                return list.GetElement(point);
             }
         }
 
@@ -44,10 +45,12 @@ namespace ClassLibrary2
         {
             get
             {
-                if ((point < 0) || (point == list.Length)) throw new InvalidOperationException();
-                return list[point];
+                if ((point == list.Count) || (point < 0)) throw new InvalidOperationException();
+                return list.GetElement(point);
             }
         }
+
+        void IDisposable.Dispose() { }
     }
 }
 

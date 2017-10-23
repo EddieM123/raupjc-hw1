@@ -14,7 +14,7 @@ namespace ClassLibrary2
         // enumerator implementation
         public IEnumerator<X> GetEnumerator()
         {
-            return new GenericListEnumerator<X>(this._internalStorage);
+            return new GenericListEnumerator<X>(this);
         }
 
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
