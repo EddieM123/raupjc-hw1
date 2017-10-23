@@ -10,7 +10,7 @@ namespace _2.zad
         private X[] temp;
         private int i = 0;
 
-        int indeks = 0;
+        private int indeks = 0;
 
         // default constructor
         public GenericList()

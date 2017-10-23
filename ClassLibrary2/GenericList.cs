@@ -9,7 +9,7 @@ namespace ClassLibrary2
         private X[] temp;
         private int i = 0;
 
-        int indeks = 0;
+        private int indeks = 0;
 
         // enumerator implementation
         public IEnumerator<X> GetEnumerator()
